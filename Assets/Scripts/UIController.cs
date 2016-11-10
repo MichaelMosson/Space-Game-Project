@@ -20,22 +20,14 @@ public class UIController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-		setTexts ();
+		currentAlertN = 1;
 		updateObjectiveText ();
 		updateAlertText ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
-
-	//Sets texts to there default states
-	void setTexts()
-	{
-		alertText.text = "";
-		objectiveText.text = currentObjective [currentObjectiveN];
+		updateObjectiveText ();
 	}
 
 	//Update the objective text (Top left corner in game)
@@ -48,5 +40,24 @@ public class UIController : MonoBehaviour {
 	void updateAlertText()
 	{
 		alertText.text = currentAlert [currentAlertN];
+		StartCoroutine ("alertTimer");
+		Debug.Log ("alertTimer coroutine started");
+
+	}
+
+	void clearAlertText()
+	{
+		alertText.text = currentAlert[0];
+		StopCoroutine ("alertTimer");
+		Debug.Log ("alertTimer has ended");
+	}
+
+	IEnumerator alertTimer()
+	{
+		while (true) {
+			yield return new WaitForSeconds(5f);
+			clearAlertText ();
+		}
+
 	}
 }

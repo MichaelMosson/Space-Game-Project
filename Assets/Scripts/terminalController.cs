@@ -16,8 +16,10 @@ public class terminalController : MonoBehaviour {
 	public Text footerText;
 
 	public bool isActive;
+	public bool activated;
 
-	public int terminalID;
+	public int terminalID = 1;
+	public int questionN = 0;
 	public GameObject[] terminalPanel;
 
 
@@ -28,38 +30,81 @@ public class terminalController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isActive = false;
+		activated = false;
 		terminalPanel = GameObject.FindGameObjectsWithTag ("terminalPanel");
-
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (isActive && !activated) 
+		{
+			activated = true;
+			setTextsOnActive ();
+
+		}
 		
 	}
 
 	public void activatePanel()
 	{
+	//activated when clicked on	
+	//start sequence coroutine here	
 	}
 
 	public void deativatePanel()
 	{
 	}
 
-	public void clearTexts()
+	//Clears all texts shown on the screen
+	public void clearAllTexts()
 	{
+		questionText.text = "";
+		headerText.text = "";
+		footerText.text = "";
+		informationText.text = "";
 	}
 
 	public void setTextsOnActive()
 	{
 		headerText.text = "Terminal ID "+terminalID+" is running boot start-up.";
 		informationText.text = "";
+		questionText.text = "";
+		footerText.text = "LOADING BIOS PLEASE WAIT...";
+		StartCoroutine ("sequence");
+	}
+
+	public void setTextsOnHack()
+	{
+		headerText.text = "File HAX.EXE has been mounted";
+		informationText.text = "HAX.EXE running sequenceCrackerv12.4.bat";
+		questionText.text = "";
+		footerText.text = "LOADING BIOS PLEASE WAIT...";
 	}
 
 	public void setTextsOnQuestion()
 	{
-		questionText.text = question [0];
-		footerText.text = "ERROR: SYSTEM.OVERRIDE = true" +
+		questionText.text = question [questionN];
+		informationText.text = "";
+		footerText.text = "ERROR: SYSTEM.OVERRIDE = true;" +
 			" Terminal ID "+terminalID+" attempting to connect...";
+		StopCoroutine ("sequence");
+	}
+
+	public void calculateQuestion()
+	{
+	}
+
+	public void enablePlayerInput(){
+	}
+
+	public IEnumerator sequence()
+	{
+		while(true)
+		{
+			yield return new WaitForSeconds(3f);
+			setTextsOnHack ();
+			yield return new WaitForSeconds(3f);
+			setTextsOnQuestion ();
+		}
 	}
 }
