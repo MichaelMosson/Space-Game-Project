@@ -55,7 +55,8 @@ public class UIController : MonoBehaviour {
 	IEnumerator alertTimer()
 	{
 		while (true) {
-			yield return new WaitForSeconds(5f);
+			Debug.Log ("alertTimer has begun, return yielded in 2.5 seconds");
+			yield return new WaitForSeconds(2.5f);
 			clearAlertText ();
 		}
 

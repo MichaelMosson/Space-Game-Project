@@ -7,18 +7,11 @@ public class Desk : MonoBehaviour {
 	public bool isOpen;
 
 	public Text alertText;
-
-	public enum State{
-		Open,
-		Closed,
-		Inbetween
-	}
-
-	public State state;
+	public terminalController terminalcontroller;
 
 	// Use this for initialization
 	void Start () {
-		state = Desk.State.Closed;
+		terminalcontroller = GetComponent<terminalController> ();
 		isOpen = false;
 
 	}
@@ -30,7 +23,7 @@ public class Desk : MonoBehaviour {
 
 	public void OnMouseEnter(){
 
-		alertText.text = "Press RMB to load HAX.EXE";
+		alertText.text = "Press LMB to load Terminal with HAX.EXE";
 		Debug.Log ("Enter");
 	}
 
@@ -41,6 +34,9 @@ public class Desk : MonoBehaviour {
 
 	public void OnMouseUp (){
 		Debug.Log ("Up");
+		alertText.text = "";
+		//Line below has caused quite a few issues (14/11/16)
+		terminalcontroller.startPanel();
 	}
 
 	private void Open (){

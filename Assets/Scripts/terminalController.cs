@@ -14,45 +14,46 @@ public class terminalController : MonoBehaviour {
 	public Text headerText;
 	public Text informationText;
 	public Text footerText;
+	public Text alertText;
 
 	public bool isActive;
-	public bool activated;
+
 
 	public int terminalID = 1;
 	public int questionN = 0;
-	public GameObject[] terminalPanel;
+	public GameObject terminalPanel;
 
-
+	private Desk desk;
 
 	//TODO get input from the player
 
 
 	// Use this for initialization
 	void Start () {
+		//terminalPanel.SetActive (false);
+		desk = GetComponent<Desk> ();
 		isActive = false;
-		activated = false;
-		terminalPanel = GameObject.FindGameObjectsWithTag ("terminalPanel");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isActive && !activated) 
-		{
-			activated = true;
-			setTextsOnActive ();
-
-		}
 		
 	}
 
-	public void activatePanel()
+	public void startPanel()
 	{
-	//activated when clicked on	
-	//start sequence coroutine here	
+		//set terminal panel gameObject as active
+		terminalPanel.SetActive(true);
+		//Set the texts to mimic a PC booting up
+		setTextsOnActive ();
 	}
 
 	public void deativatePanel()
 	{
+		clearAllTexts ();
+		terminalPanel.SetActive (false);
+		isActive = false;
 	}
 
 	//Clears all texts shown on the screen
@@ -92,9 +93,12 @@ public class terminalController : MonoBehaviour {
 
 	public void calculateQuestion()
 	{
+		//TODO make system to chose the questions based on the game's difficulty level and level progression
 	}
 
-	public void enablePlayerInput(){
+	public void enablePlayerInput()
+	{
+		//TODO allow player to input numbers (Number Keypad?)
 	}
 
 	public IEnumerator sequence()
@@ -107,4 +111,5 @@ public class terminalController : MonoBehaviour {
 			setTextsOnQuestion ();
 		}
 	}
+		
 }
