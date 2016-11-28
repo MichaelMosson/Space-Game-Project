@@ -8,7 +8,7 @@ public class terminalController : MonoBehaviour {
 		"If a group of friends travel to Japan for 14 days and the cost of insurance is £26 p/p, but the insurance company gives them a 5% discount, what is the total end price?",
 		"Calculate the volume of a cone with a height of 18cm and a diameter of 20cm. Remember V = 1/3Bh!",
 		"What is the equation of the line passing through point (-2, 3) parallel to the line with the equation y + 4 x 7?"};
-	public int[] answer = new int[]{1,2};
+	public float[] answer = new float[]{1f,2f};
 
 	public Text questionText;
 	public Text headerText;

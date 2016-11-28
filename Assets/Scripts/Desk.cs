@@ -35,7 +35,6 @@ public class Desk : MonoBehaviour {
 	public void OnMouseUp (){
 		Debug.Log ("Up");
 		alertText.text = "";
-		//Line below has caused quite a few issues (14/11/16)
 		terminalcontroller.startPanel();
 	}
 

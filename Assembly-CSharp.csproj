@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Desk.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\terminalController.cs" />
+     <Compile Include="Assets\Scripts\terminalKeypadController.cs" />
      <Compile Include="Assets\Unity Asset Store\AllStarCharacterLibray\Scripts\CamTarget.cs" />
      <Compile Include="Assets\Unity Asset Store\AllStarCharacterLibray\Scripts\CharacterDemoController.cs" />
      <Compile Include="Assets\Unity Asset Store\AllStarCharacterLibray\Scripts\MouseOrbit.cs" />
