@@ -4,30 +4,21 @@ using System.Collections;
 
 public class terminalKeypadController : MonoBehaviour {
 
-	public Text inputText;
 	public string inputNumberS;//ended with an S to indicate that it is a string
 	public float playerAnswerInput;
 	public float buttonPressedN;
 	public int keypressCounter;
 
-	//strings for calculator input
-	public string oneS = "1";
-	public string twoS = "2";
-	public string threeS = "3";
-	public string fourS = "4";
-	public string fiveS = "5";
-	public string sixS = "6";
-	public string sevenS = "7";
-	public string eightS = "8";
-	public string nineS = "9";
-	public string zeroS = "0";
-	public string decimalPointS = ".";
+	//strings array for calculator input
+    public string[] numbers = new string[] { "1", "2","3","4","5","6","7","8","9","0","." };
+
+    private terminalController terminalcontroller;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		inputText.text = "";
+        terminalcontroller = GetComponent<terminalController>();
 		playerAnswerInput = 0f;
 		keypressCounter = 0;
 	}
@@ -51,7 +42,7 @@ public class terminalKeypadController : MonoBehaviour {
 
 	public void updateDisplayInput()
 	{
-		inputText.text = inputNumberS;
+
 	}
 
 	public void addNumberToInputText()
@@ -61,84 +52,84 @@ public class terminalKeypadController : MonoBehaviour {
 
 	public void clearInput()
 	{
-		inputText.text = "";
+		
 		playerAnswerInput = 0f;
 	}
 
-	public void oneButtonPressed()
+	public void onClickOne()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + oneS;
+		inputNumberS = inputNumberS + numbers[0];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void twoButtonPressed()
+	public void onClickTwo()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + twoS;
+		inputNumberS = inputNumberS + numbers[1];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void threeButtonPressed()
+	public void onClickThree()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + threeS;
+		inputNumberS = inputNumberS + numbers[2];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void fourButtonPressed()
+	public void onClickFive()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + fourS;
+		inputNumberS = inputNumberS + numbers[3];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void fiveButtonPressed()
+	public void onClickSix()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + fiveS;
+		inputNumberS = inputNumberS + numbers[4];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void sixButtonPressed()
+	public void onClickSeven()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + sixS;
+		inputNumberS = inputNumberS + numbers[5];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void sevenButtonPressed()
+	public void onClickEight()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + sevenS;
+		inputNumberS = inputNumberS + numbers[6];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void eightButtonPressed()
+	public void onClickNine()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + eightS;
+		inputNumberS = inputNumberS + numbers[7];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void nineButtonPressed()
+	public void onClickTen()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + nineS;
+		inputNumberS = inputNumberS + numbers[8];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void zeroButtonPressed()
+	public void onClickZero()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + zeroS;
+		inputNumberS = inputNumberS + numbers[9];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
-	public void decimalPointButtonPressed()
+	public void onClickDecimalPoint()
 	{
 		Debug.Log (inputNumberS);
-		inputNumberS = inputNumberS + decimalPointS;
+		inputNumberS = inputNumberS + numbers[10];
 		keypressCounter++;
 		updateDisplayInput ();
 	}
